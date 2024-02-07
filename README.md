@@ -21,7 +21,7 @@ The aspect ratio implementation details are yet to be defined.
 
 ## Rendering a Video Frame
 
-Clients should adhere to the existing frame rendering rules, incorporating the following conditions into the process to support video frames:
+Clients should adhere to the existing frame rendering rules, optionally incorporating the following conditions into the process if they want to support video frames:
 
 1. Applications must inspect the headers to determine if the URL corresponds to a frame.
 2. If the frame includes valid video frame tags, the application should render a video frame.
