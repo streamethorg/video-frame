@@ -34,14 +34,13 @@ Although HLS is extensively used in the streaming industry, it is not natively s
 
 Below is a list of libraries that facilitate HLS playback:
 
-- [Video.js] (https://videojs.com/)
-- [Hls.js] (https://github.com/video-dev/hls.js)
-- [Livepeer.js] (https://docs.livepeer.org/kit/player/Root)
+- [Video.js](https://videojs.com/)
+- [Hls.js](https://github.com/video-dev/hls.js)
+- [Livepeer.js](https://docs.livepeer.org/kit/player/Root)
 
 This specification aims to standardize the integration and rendering of video content within Farcaster Frames, ensuring a consistent and accessible experience across platforms.
 
+## Examples
 
-## Examples: 
-
-[index.html] (https://streamethorg.github.io/video-frame/frame.html) outlines how a video frame should be implemented.
-[frame.html] (https://streamethorg.github.io/video-frame) outlines how a video frame should be rendered. Ofcourse, this is a quick demo implementation, fetch requests should be proxied on a server. 
+- [index.html](https://streamethorg.github.io/video-frame/frame.html) outlines how a video frame should be implemented.
+- [frame.html](https://streamethorg.github.io/video-frame) outlines how a video frame should be rendered. Of course, this is a quick demo implementation, fetch requests should be proxied on a server.
