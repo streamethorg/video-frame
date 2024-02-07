@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Video Frame Builder</title>
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="videoFrameContainer"></div>
+
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script>
+    // This function fetches the HTML content and returns a DOM object
+    function fetchHTML(url) {
+      return fetch(url)
+        .then(response => response.text())
+        .then(html => new DOMParser().parseFromString(html, "text/html"));
+    }
+
+    // This function extracts metadata from the DOM object
+    function extractMetadata(dom) {
+      return {
+        videoUrl: dom.querySelector('meta[property="fc:frame:video"]').getAttribute('content'),
+        videoType: dom.querySelector('meta[property="fc:frame:video:type"]').getAttribute('content'),
+        imageUrl: dom.querySelector('meta[property="fc:frame:image"]').getAttribute('content'),
+      };
+    }
+
+    // This function creates and inserts the video frame into the page
+    function createVideoFrame(metadata) {
+      const container = document.getElementById('videoFrameContainer');
+      container.innerHTML = ''; // Clear existing content
+
+      const videoElement = document.createElement('video');
+      videoElement.classList.add('video-js');
+      videoElement.controls = true;
+      videoElement.preload = 'auto';
+      videoElement.width = 640; // Set your desired width
+      videoElement.height = 360; // Set your desired height
+      videoElement.poster = metadata.imageUrl;
+      videoElement.setAttribute('data-setup', '{}');
+
+      const sourceElement = document.createElement('source');
+      sourceElement.src = metadata.videoUrl;
+      sourceElement.type = metadata.videoType;
+
+      videoElement.appendChild(sourceElement);
+      container.appendChild(videoElement);
+
+      // Initialize the video player
+      videojs(videoElement);
+    }
+
+    // Example usage
+    const url = 'https://streamethorg.github.io/video-frame';
+    fetchHTML(url)
+      .then(dom => extractMetadata(dom))
+      .then(metadata => createVideoFrame(metadata))
+      .catch(error => console.error('Failed to fetch or parse HTML:', error));
+
+  </script> <!-- Your JavaScript file -->
+</body>
+
+</html>
