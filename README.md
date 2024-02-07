@@ -34,8 +34,8 @@ Although HLS is extensively used in the streaming industry, it is not natively s
 
 Below is a list of libraries that facilitate HLS playback:
 
-- Video.js [https://videojs.com/]
-- Hls.js [https://github.com/video-dev/hls.js]
-- Livepeer.js [https://docs.livepeer.org/kit/player/Root]
+- Video.js (https://videojs.com/)
+- Hls.js (https://github.com/video-dev/hls.js)
+- Livepeer.js (https://docs.livepeer.org/kit/player/Root)
 
 This specification aims to standardize the integration and rendering of video content within Farcaster Frames, ensuring a consistent and accessible experience across platforms.
